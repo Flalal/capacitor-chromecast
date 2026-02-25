@@ -13,7 +13,6 @@ import androidx.mediarouter.media.MediaRouteSelector;
 import androidx.mediarouter.media.MediaRouter;
 import androidx.mediarouter.media.MediaRouter.RouteInfo;
 
-import com.caprockapps.plugins.chromecast.lib.CastOptionsProvider;
 import com.getcapacitor.PluginCall;
 import com.google.android.gms.cast.CastDevice;
 import com.google.android.gms.cast.CastMediaControlIntent;
@@ -25,7 +24,6 @@ import com.google.android.gms.cast.framework.Session;
 import com.google.android.gms.cast.framework.SessionManager;
 import com.google.android.gms.cast.framework.SessionManagerListener;
 
-import org.apache.cordova.CallbackContext;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -59,7 +57,7 @@ public class ChromecastConnection {
         act.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                settings = activity.getSharedPreferences("CORDOVA-PLUGIN-CHROMECAST_ChromecastConnection", 0);
+                settings = activity.getSharedPreferences("CAPACITOR-CHROMECAST_ChromecastConnection", 0);
                 appId = settings.getString("appId", CastMediaControlIntent.DEFAULT_MEDIA_RECEIVER_APPLICATION_ID);
                 listener = connectionListener;
                 media = new ChromecastSession(activity, listener);
