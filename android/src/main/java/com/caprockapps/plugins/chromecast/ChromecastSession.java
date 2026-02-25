@@ -78,6 +78,14 @@ public class ChromecastSession {
                     return;
                 }
                 setupQueue();
+                // Periodic progress updates (every 1s) for UI progress bar
+                client.addProgressListener(new RemoteMediaClient.ProgressListener() {
+                    @Override
+                    public void onProgressUpdated(long progressMs, long durationMs) {
+                        clientListener.onMediaUpdate(createMediaObject());
+                    }
+                }, 1000);
+
                 client.registerCallback(new RemoteMediaClient.Callback() {
                     private Integer prevItemId;
                     @Override
