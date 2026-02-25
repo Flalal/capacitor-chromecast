@@ -243,7 +243,7 @@ public class Chromecast extends Plugin {
         Integer duration = pluginCall.getInt("duration", 0);
         String streamType = pluginCall.getString("streamType", "");
         Boolean autoPlay = pluginCall.getBoolean("autoPlay", true);
-        Integer currentTime = pluginCall.getInt("currentTime", 0);
+        Double currentTime = pluginCall.getDouble("currentTime", 0.0);
         JSObject metadata = pluginCall.getObject("metadata", new JSObject());
         JSObject textTrackStyle = pluginCall.getObject("textTrackStyle", new JSObject());
 
